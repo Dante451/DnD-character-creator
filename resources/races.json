@@ -1,0 +1,78 @@
+{
+    "Dwarf": {
+      "subraces": ["Hill Dwarf", "Mountain Dwarf"]
+    },
+    "Elf": {
+      "subraces": ["High Elf", "Wood Elf", "Dark Elf (Drow)"]
+    },
+    "Halfling": {
+      "subraces": ["Lightfoot Halfling", "Stout Halfling"]
+    },
+    "Human": {
+      "subraces": []
+    },
+    "Dragonborn": {
+      "subraces": []
+    },
+    "Gnome": {
+      "subraces": ["Forest Gnome", "Rock Gnome"]
+    },
+    "Half-Elf": {
+      "subraces": []
+    },
+    "Half-Orc": {
+      "subraces": []
+    },
+    "Tiefling": {
+      "subraces": []
+    },
+    "Aarakocra": {
+      "subraces": []
+    },
+    "Genasi": {
+      "subraces": ["Air Genasi", "Earth Genasi", "Fire Genasi", "Water Genasi"]
+    },
+    "Githyanki": {
+      "subraces": []
+    },
+    "Githzerai": {
+      "subraces": []
+    },
+    "Tabaxi": {
+      "subraces": []
+    },
+    "Triton": {
+      "subraces": []
+    },
+    "Firbolg": {
+      "subraces": []
+    },
+    "Kenku": {
+      "subraces": []
+    },
+    "Lizardfolk": {
+      "subraces": []
+    },
+    "Hobgoblin": {
+      "subraces": []
+    },
+    "Yuan-Ti Pureblood": {
+      "subraces": []
+    },
+    "Changeling": {
+      "subraces": []
+    },
+    "Kalashtar": {
+      "subraces": []
+    },
+    "Shifter": {
+      "subraces": []
+    },
+    "Warforged": {
+      "subraces": []
+    },
+    "Vedalken": {
+      "subraces": []
+    }
+  }
+  

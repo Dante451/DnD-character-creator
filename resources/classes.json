@@ -1,0 +1,35 @@
+{
+    "Barbarian": {},
+    "Bard": {},
+    "Cleric": {
+      "domains": ["Life", "Light", "Nature", "Tempest", "Trickery", "War", "Knowledge", "Arcana"]
+    },
+    "Druid": {
+      "circles": ["Circle of the Land", "Circle of the Moon"]
+    },
+    "Fighter": {
+      "subclasses": ["Champion", "Battle Master", "Eldritch Knight"]
+    },
+    "Monk": {
+      "subclasses": ["Way of the Open Hand", "Way of Shadow", "Way of the Four Elements"]
+    },
+    "Paladin": {
+      "subclasses": ["Oath of Devotion", "Oath of the Ancients", "Oath of Vengeance"]
+    },
+    "Ranger": {
+      "subclasses": ["Hunter", "Beast Master"]
+    },
+    "Rogue": {
+      "subclasses": ["Thief", "Assassin", "Arcane Trickster"]
+    },
+    "Sorcerer": {
+      "subclasses": ["Draconic Bloodline", "Wild Magic"]
+    },
+    "Warlock": {
+      "subclasses": ["The Archfey", "The Fiend", "The Great Old One"]
+    },
+    "Wizard": {
+      "subclasses": ["School of Abjuration", "School of Conjuration", "School of Divination", "School of Enchantment", "School of Evocation", "School of Illusion", "School of Necromancy", "School of Transmutation"]
+    }
+  }
+  
