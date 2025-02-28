@@ -10,7 +10,7 @@ This is a free, general tool for creating a character that anyone can use.
 
 I hope you find this app useful!
 
-If you encounter any bugs, issues, or have an inquiry feel free to contact me at: dantedaciuk555@gmail.com
+[If you encounter any bugs, issues, or have an inquiry feel free to contact me at: dantedaciuk555@gmail.com]: #
 
 ## Upcoming features:
 Races and subraces add the ability bonuses automatically to current stats
