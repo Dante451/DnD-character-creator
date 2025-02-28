@@ -11,13 +11,21 @@ If you encounter any bugs, issues, or have an inquiry feel free to contact me at
 
 ## Upcoming features:
 Races and subraces add the ability bonuses automatically to current stats
+
 Two text boxes for standard array and one with a roll button beside it that prints a spread of 3d6+2 to manually add
+
 Adding racial traits to the character sheet
+
 Adding feat selection
+
 Adding skill selection
+
 Adding level up and character updates
+
 Adding spells and spell slots
+
 Add artificer 
+
 1.0 and beyond separated into branches to downpatch app if you so desire
 
 ## Changelog:
