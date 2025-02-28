@@ -1,5 +1,6 @@
 import json
 import os
+from creation.character import Character
 
 def save_character(character, filename):
     """Save the character data to a JSON file."""
@@ -12,6 +13,7 @@ def load_character(filename):
         data = json.load(file)
         character = Character()
         character.set_race(data['race'])
+        character.set_subrace(data.get('subrace'))  # Load subrace if it exists
         character.set_class(data['class'])
         character.set_background(data['background'])
         character.set_abilities(data['abilities'])

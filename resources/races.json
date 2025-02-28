@@ -9,7 +9,7 @@
       "subraces": ["Lightfoot Halfling", "Stout Halfling"]
     },
     "Human": {
-      "subraces": []
+      "subraces": ["Variant Human"]
     },
     "Dragonborn": {
       "subraces": []
