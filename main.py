@@ -14,7 +14,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 
 root = tk.Tk()
-root.title("D&D Character Creator (v0.2)")
+root.title("D&D Character Creator (v0.3)")
 
 # Create a character object, passing races data
 character = Character(races)
