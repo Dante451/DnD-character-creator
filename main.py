@@ -1,6 +1,7 @@
+from creation.save_load import load_data  # Import load_data function
 from creation.character import Character
 from creation.dice import roll_dice, roll_ability
-from creation.save_load import load_data, save_character
+from creation.save_load import save_character
 
 # Load data from JSON files
 races = load_data('races.json')
@@ -15,8 +16,8 @@ from tkinter import ttk, messagebox
 root = tk.Tk()
 root.title("D&D Character Creator (v0.2)")
 
-# Create a character object
-character = Character()
+# Create a character object, passing races data
+character = Character(races)
 
 # Function to validate ability score input
 def validate_ability_score(entry):
@@ -44,12 +45,15 @@ def update_subrace_options():
 
 # Function to update selected character data (including subrace)
 def update_character():
+    # Fetch race and subrace information
     race = race_combobox.get()
     subrace = subrace_combobox.get() if subrace_combobox.winfo_ismapped() else None  # Only fetch subrace if visible
+
+    # Set the race and subrace
     character.set_race(race)
     character.set_subrace(subrace)  # Store the selected subrace
     
-    # Continue with the rest of the character setup
+    # Set class and background
     character.set_class(class_combobox.get())
     character.set_background(background_combobox.get())
     
@@ -62,8 +66,17 @@ def update_character():
         else:
             return  # Stop if any input is invalid
     
+    # Set abilities based on user input
     character.set_abilities(selected_abilities)
+    
+    # Now apply race bonuses to the abilities
+    character.apply_race_bonus()
+    
+    # Print updated character info with bonuses applied
     print(character)
+
+
+
 
 # Function to save the character to a file
 def save_char():
@@ -98,19 +111,6 @@ for idx, ability in enumerate(abilities):
 
 # Bind event to update subrace options when race changes
 race_combobox.bind("<<ComboboxSelected>>", lambda event: update_subrace_options())
-
-# Ensure enough space for rows and dynamic widgets
-root.grid_rowconfigure(0, weight=0)  # Race label row
-root.grid_rowconfigure(1, weight=0)  # Class label row
-root.grid_rowconfigure(2, weight=0)  # Background label row
-
-# Ability Scores
-root.grid_rowconfigure(5, weight=0)  # Ability Scores label
-for i in range(6, 6 + len(abilities)):  # Ability scores inputs
-    root.grid_rowconfigure(i, weight=0)
-
-# Subrace
-root.grid_rowconfigure(4, weight=0)  # Make space for subrace row
 
 # Buttons
 update_button = tk.Button(root, text="Update Character", command=update_character)

@@ -1,78 +1,172 @@
 {
-    "Dwarf": {
-      "subraces": ["Hill Dwarf", "Mountain Dwarf"]
-    },
-    "Elf": {
-      "subraces": ["High Elf", "Wood Elf", "Dark Elf (Drow)"]
-    },
-    "Halfling": {
-      "subraces": ["Lightfoot Halfling", "Stout Halfling"]
-    },
-    "Human": {
-      "subraces": ["Variant Human"]
-    },
-    "Dragonborn": {
-      "subraces": []
-    },
-    "Gnome": {
-      "subraces": ["Forest Gnome", "Rock Gnome"]
-    },
-    "Half-Elf": {
-      "subraces": []
-    },
-    "Half-Orc": {
-      "subraces": []
-    },
-    "Tiefling": {
-      "subraces": []
-    },
-    "Aarakocra": {
-      "subraces": []
-    },
-    "Genasi": {
-      "subraces": ["Air Genasi", "Earth Genasi", "Fire Genasi", "Water Genasi"]
-    },
-    "Githyanki": {
-      "subraces": []
-    },
-    "Githzerai": {
-      "subraces": []
-    },
-    "Tabaxi": {
-      "subraces": []
-    },
-    "Triton": {
-      "subraces": []
-    },
-    "Firbolg": {
-      "subraces": []
-    },
-    "Kenku": {
-      "subraces": []
-    },
-    "Lizardfolk": {
-      "subraces": []
-    },
-    "Hobgoblin": {
-      "subraces": []
-    },
-    "Yuan-Ti Pureblood": {
-      "subraces": []
-    },
-    "Changeling": {
-      "subraces": []
-    },
-    "Kalashtar": {
-      "subraces": []
-    },
-    "Shifter": {
-      "subraces": []
-    },
-    "Warforged": {
-      "subraces": []
-    },
-    "Vedalken": {
-      "subraces": []
-    }
+  "Dwarf": {
+      "subraces": ["Hill Dwarf", "Mountain Dwarf"],
+      "ability_bonus": {
+          "Constitution": 2,
+          "Strength": 2
+      }
+  },
+  "Elf": {
+      "subraces": ["High Elf", "Wood Elf", "Dark Elf (Drow)"],
+      "ability_bonus": {
+          "Dexterity": 2
+      }
+  },
+  "Halfling": {
+      "subraces": ["Lightfoot Halfling", "Stout Halfling"],
+      "ability_bonus": {
+          "Dexterity": 2
+      }
+  },
+  "Human": {
+      "subraces": ["Variant Human"],
+      "ability_bonus": {
+          "All": 1
+      }
+  },
+  "Dragonborn": {
+      "subraces": [],
+      "ability_bonus": {
+          "Strength": 2,
+          "Charisma": 1
+      }
+  },
+  "Gnome": {
+      "subraces": ["Forest Gnome", "Rock Gnome"],
+      "ability_bonus": {
+          "Intelligence": 2
+      }
+  },
+  "Half-Elf": {
+      "subraces": [],
+      "ability_bonus": {
+          "Charisma": 2,
+          "Choose two other abilities": 1
+      }
+  },
+  "Half-Orc": {
+      "subraces": [],
+      "ability_bonus": {
+          "Strength": 2,
+          "Constitution": 1
+      }
+  },
+  "Tiefling": {
+      "subraces": [],
+      "ability_bonus": {
+          "Charisma": 2,
+          "Intelligence": 1
+      }
+  },
+  "Aarakocra": {
+      "subraces": [],
+      "ability_bonus": {
+          "Dexterity": 2,
+          "Wisdom": 1
+      }
+  },
+  "Genasi": {
+      "subraces": ["Air Genasi", "Earth Genasi", "Fire Genasi", "Water Genasi"],
+      "ability_bonus": {
+          "Constitution": 2
+      }
+  },
+  "Githyanki": {
+      "subraces": [],
+      "ability_bonus": {
+          "Strength": 2,
+          "Intelligence": 1
+      }
+  },
+  "Githzerai": {
+      "subraces": [],
+      "ability_bonus": {
+          "Dexterity": 2,
+          "Wisdom": 1
+      }
+  },
+  "Tabaxi": {
+      "subraces": [],
+      "ability_bonus": {
+          "Dexterity": 2,
+          "Charisma": 1
+      }
+  },
+  "Triton": {
+      "subraces": [],
+      "ability_bonus": {
+          "Strength": 1,
+          "Constitution": 1,
+          "Charisma": 1
+      }
+  },
+  "Firbolg": {
+      "subraces": [],
+      "ability_bonus": {
+          "Strength": 1,
+          "Wisdom": 2
+      }
+  },
+  "Kenku": {
+      "subraces": [],
+      "ability_bonus": {
+          "Dexterity": 2,
+          "Wisdom": 1
+      }
+  },
+  "Lizardfolk": {
+      "subraces": [],
+      "ability_bonus": {
+          "Constitution": 2,
+          "Wisdom": 1
+      }
+  },
+  "Hobgoblin": {
+      "subraces": [],
+      "ability_bonus": {
+          "Constitution": 2,
+          "Intelligence": 1
+      }
+  },
+  "Yuan-Ti Pureblood": {
+      "subraces": [],
+      "ability_bonus": {
+          "Charisma": 2,
+          "Intelligence": 1
+      }
+  },
+  "Changeling": {
+      "subraces": [],
+      "ability_bonus": {
+          "Charisma": 2
+      }
+  },
+  "Kalashtar": {
+      "subraces": [],
+      "ability_bonus": {
+          "Wisdom": 2,
+          "Charisma": 1
+      }
+  },
+  "Shifter": {
+      "subraces": [],
+      "ability_bonus": {
+          "Dexterity": 2,
+          "Constitution": 1
+      }
+  },
+  "Warforged": {
+      "subraces": [],
+      "ability_bonus": {
+          "Constitution": 2,
+          "Strength": 1
+      }
+  },
+  "Vedalken": {
+      "subraces": [],
+      "ability_bonus": {
+          "Intelligence": 2,
+          "Constitution": 1
+      }
   }
-  
+}
