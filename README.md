@@ -2,7 +2,7 @@
 
 ## Author: Dante Daciuk
 
-## Date: 4/3/25 
+## Date: 5/3/25 
 
 The purpose of this app was to simplify and streamline character creation for D&D 5e in a visual format to make character creation easier.
 
@@ -15,8 +15,6 @@ I hope you find this app useful!
 [The above text needs to be commented out for full release and this text needs to be deleted on full release]: #
 
 ## Upcoming features:
-Races and subraces add the ability bonuses automatically to current stats
-
 Two text boxes for standard array and one with a roll button beside it that prints a spread of 3d6+2 to manually add
 
 Adding racial traits to the character sheet
@@ -35,10 +33,15 @@ Add artificer
 
 1.0 and beyond separated into branches to downpatch app if you so desire
 
-## Known Bugs:
-When selecting a race and a corresponding subrace, switching races will retain the subrace title of the previous race (visual bug)
+## Known Issues:
+When selecting a race and a subrace, switching races and not selecting a new subrace will retain the subrace title of the previous race (visual bug)
 
 ## Changelog:
+
+### 0.4 (5/3/25):
+Added ability selection for the racial bonus of Half-Elf and Variant Human
+
+Changed Variant Human from subrace to race 
 
 ### 0.3 (4/3/25):
 Added automatic racial ability bonus application

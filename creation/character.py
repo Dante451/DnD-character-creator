@@ -1,3 +1,4 @@
+
 class Character:
     def __init__(self, races):
         self.race = ""
@@ -68,12 +69,16 @@ class Character:
         
         # Human
         elif self.race == "Human":
-            self.abilities["Strength"] += 1  # Human gets +1 to all abilities
-            self.abilities["Dexterity"] += 1
-            self.abilities["Constitution"] += 1
-            self.abilities["Intelligence"] += 1
-            self.abilities["Wisdom"] += 1
-            self.abilities["Charisma"] += 1
+            if hasattr(self, "variant_human_bonus_abilities"):  # Ensure it's set
+                for ability in self.racial_bonus_abilities:
+                    self.abilities[ability] += 1
+            else:
+                self.abilities["Strength"] += 1  # Human gets +1 to all abilities
+                self.abilities["Dexterity"] += 1
+                self.abilities["Constitution"] += 1
+                self.abilities["Intelligence"] += 1
+                self.abilities["Wisdom"] += 1
+                self.abilities["Charisma"] += 1
         
         # Dragonborn
         elif self.race == "Dragonborn":
@@ -93,10 +98,11 @@ class Character:
         
         # Half-Elf
         elif self.race == "Half-Elf":
-            self.abilities["Charisma"] += 2  # Half-Elf gets +2 Charisma
-            # Half-Elf gets +1 to two other abilities (you can allow the player to choose these)
-            self.abilities["Dexterity"] += 1
-            self.abilities["Constitution"] += 1
+            self.abilities["Charisma"] += 2
+        # Apply +1 to selected abilities
+            if hasattr(self, "half_elf_bonus_abilities"):  # Ensure it's set
+                for ability in self.racial_bonus_abilities:
+                    self.abilities[ability] += 1
         
         # Half-Orc
         elif self.race == "Half-Orc":

@@ -14,7 +14,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 
 root = tk.Tk()
-root.title("D&D Character Creator (v0.3)")
+root.title("D&D Character Creator (v0.4)")
 
 # Create a character object, passing races data
 character = Character(races)
@@ -35,6 +35,19 @@ def update_subrace_options():
     race = race_combobox.get()
     subrace_options = races.get(race, {}).get('subraces', [])
     
+    if race in ["Half-Elf", "Variant Human"]:
+        # Show the +1 ability selection boxes if race is Half-Elf or Variant Human
+        racial_bonus1_combobox.grid(row=8 + len(abilities), column=1, padx=10, pady=5)
+        racial_bonus2_combobox.grid(row=9 + len(abilities), column=1, padx=10, pady=5)
+        racial_bonus1_label.grid(row=8 + len(abilities), column=0, padx=10, pady=5)
+        racial_bonus2_label.grid(row=9 + len(abilities), column=0, padx=10, pady=5)
+    else:
+        # Hide the +1 ability selection boxes if race is not Half-Elf or Variant Human
+        racial_bonus1_combobox.grid_forget()
+        racial_bonus2_combobox.grid_forget()
+        racial_bonus1_label.grid_forget()
+        racial_bonus2_label.grid_forget()
+
     if subrace_options:  # If the race has subraces
         subrace_combobox['values'] = subrace_options
         subrace_combobox.grid(row=4, column=1, padx=10, pady=5)  # Show the subrace combobox
@@ -69,13 +82,20 @@ def update_character():
     # Set abilities based on user input
     character.set_abilities(selected_abilities)
     
+    # If Half-Elf or Variant Human, apply the +1 bonuses to two abilities
+    if race in ["Half-Elf", "Variant Human"]:
+        bonus1 = racial_bonus1_combobox.get()
+        bonus2 = racial_bonus2_combobox.get()
+
+        if bonus1 and bonus2:  # Make sure both bonuses are selected
+            character.abilities[bonus1] += 1
+            character.abilities[bonus2] += 1
+    
     # Now apply race bonuses to the abilities
     character.apply_race_bonus()
     
     # Print updated character info with bonuses applied
     print(character)
-
-
 
 
 # Function to save the character to a file
@@ -111,6 +131,19 @@ for idx, ability in enumerate(abilities):
 
 # Bind event to update subrace options when race changes
 race_combobox.bind("<<ComboboxSelected>>", lambda event: update_subrace_options())
+
+# Initially hide the labels and ComboBoxes for +1 ability bonus selection
+racial_bonus1_label = tk.Label(root, text="Select First Ability for +1")
+racial_bonus1_label.grid(row=8 + len(abilities), column=0, padx=10, pady=5)
+racial_bonus1_combobox = ttk.Combobox(root, values=list(abilities.keys()))
+racial_bonus1_combobox.grid(row=8 + len(abilities), column=1, padx=10, pady=5)
+racial_bonus1_combobox.grid_forget()  # Hide initially
+
+racial_bonus2_label = tk.Label(root, text="Select Second Ability for +1")
+racial_bonus2_label.grid(row=9 + len(abilities), column=0, padx=10, pady=5)
+racial_bonus2_combobox = ttk.Combobox(root, values=list(abilities.keys()))
+racial_bonus2_combobox.grid(row=9 + len(abilities), column=1, padx=10, pady=5)
+racial_bonus2_combobox.grid_forget()  # Hide initially
 
 # Buttons
 update_button = tk.Button(root, text="Update Character", command=update_character)

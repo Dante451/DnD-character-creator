@@ -19,10 +19,16 @@
       }
   },
   "Human": {
-      "subraces": ["Variant Human"],
+      "subraces": [],
       "ability_bonus": {
           "All": 1
       }
+  },
+  "Variant Human": {
+    "subraces": [],
+    "ability_bonus": {
+        "choose two abilities": 1
+    }
   },
   "Dragonborn": {
       "subraces": [],
