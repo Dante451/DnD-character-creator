@@ -1,6 +1,6 @@
-
 class Character:
     def __init__(self, races):
+        self.name = ""  # Add name attribute
         self.race = ""
         self.subrace = None  # Initialize subrace as None
         self.char_class = ""
@@ -8,9 +8,12 @@ class Character:
         self.abilities = {}
         self.races = races  # Store the races data to reference race bonuses
 
+    def set_name(self, name):
+        self.name = name  # Set the name for the character
+
     def set_race(self, race):
+        """Set the character's race."""
         self.race = race
-        # No need to apply bonuses yet, this will happen later when updating the character
         print(f"Race set to: {self.race}")
 
     def set_subrace(self, subrace):
@@ -218,8 +221,9 @@ class Character:
                 f"Abilities: {', '.join([f'{k}: {v}' for k, v in self.abilities.items()])}")
 
     def to_dict(self):
-        # Include subrace in the dictionary when saving the character
+        """Return the character data as a dictionary, including name."""
         return {
+            "name": self.name,  # Save the name to the dictionary
             "race": self.race,
             "subrace": self.subrace,  # Save subrace to JSON
             "class": self.char_class,

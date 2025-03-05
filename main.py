@@ -14,7 +14,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 
 root = tk.Tk()
-root.title("D&D Character Creator (v0.4)")
+root.title("D&D Character Creator (v0.5)")
 
 # Create a character object, passing races data
 character = Character(races)
@@ -57,7 +57,12 @@ def update_subrace_options():
         subrace_label.grid_forget()
 
 # Function to update selected character data (including subrace)
+# Function to update selected character data (including name, race, subrace, etc.)
 def update_character():
+    # Fetch the character's name
+    character_name = name_entry.get()  # Get the name from the entry field
+    character.set_name(character_name)  # Set the character's name
+
     # Fetch race and subrace information
     race = race_combobox.get()
     subrace = subrace_combobox.get() if subrace_combobox.winfo_ismapped() else None  # Only fetch subrace if visible
@@ -98,28 +103,34 @@ def update_character():
     print(character)
 
 
+
 # Function to save the character to a file
 def save_char():
     save_character(character, 'character.json')
     print("Character saved!")
 
 # GUI Widgets
-tk.Label(root, text="Select Race").grid(row=0, column=0, padx=10, pady=5)
+tk.Label(root, text="Enter Character Name").grid(row=0, column=0, padx=10, pady=5)
+name_entry = tk.Entry(root)  # Create an entry widget for the character name
+name_entry.grid(row=0, column=1, padx=10, pady=5)
+
+tk.Label(root, text="Select Race").grid(row=1, column=0, padx=10, pady=5)
 race_combobox = ttk.Combobox(root, values=list(races.keys()))
-race_combobox.grid(row=0, column=1, padx=10, pady=5)
+race_combobox.grid(row=1, column=1, padx=10, pady=5)
 
-tk.Label(root, text="Select Class").grid(row=1, column=0, padx=10, pady=5)
+tk.Label(root, text="Select Class").grid(row=2, column=0, padx=10, pady=5)
 class_combobox = ttk.Combobox(root, values=list(classes.keys()))
-class_combobox.grid(row=1, column=1, padx=10, pady=5)
+class_combobox.grid(row=2, column=1, padx=10, pady=5)
 
-tk.Label(root, text="Select Background").grid(row=2, column=0, padx=10, pady=5)
+tk.Label(root, text="Select Background").grid(row=3, column=0, padx=10, pady=5)
 background_combobox = ttk.Combobox(root, values=list(backgrounds.keys()))
-background_combobox.grid(row=2, column=1, padx=10, pady=5)
+background_combobox.grid(row=3, column=1, padx=10, pady=5)
 
 # Subrace Selection Widgets (before the ability scores)
 subrace_label = tk.Label(root, text="Select Subrace (if applicable)")
 subrace_combobox = ttk.Combobox(root, values=[])
 subrace_combobox.grid_forget()  # Hide it initially
+
 
 # Ability Scores Input
 tk.Label(root, text="Enter Ability Scores (1-20)").grid(row=5, column=0, padx=10, pady=5)

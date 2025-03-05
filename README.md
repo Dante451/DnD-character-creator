@@ -19,7 +19,9 @@ Two text boxes for standard array and one with a roll button beside it that prin
 
 Adding racial traits to the character sheet
 
-Add character name box
+Add random name generator
+
+Add an info button that gives information on whatever is selected
 
 Adding feat selection
 
@@ -37,6 +39,9 @@ Add artificer
 When selecting a race and a subrace, switching races and not selecting a new subrace will retain the subrace title of the previous race (visual bug)
 
 ## Changelog:
+
+### 0.5 (5/3/25):
+Added a name box for naming characters
 
 ### 0.4 (5/3/25):
 Added ability selection for the racial bonus of Half-Elf and Variant Human
