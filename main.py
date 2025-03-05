@@ -14,7 +14,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 
 root = tk.Tk()
-root.title("D&D Character Creator (v0.5)")
+root.title("D&D Character Creator (v0.5.1)")
 
 # Create a character object, passing races data
 character = Character(races)
@@ -56,7 +56,6 @@ def update_subrace_options():
         subrace_combobox.grid_forget()
         subrace_label.grid_forget()
 
-# Function to update selected character data (including subrace)
 # Function to update selected character data (including name, race, subrace, etc.)
 def update_character():
     # Fetch the character's name
@@ -145,16 +144,18 @@ race_combobox.bind("<<ComboboxSelected>>", lambda event: update_subrace_options(
 
 # Initially hide the labels and ComboBoxes for +1 ability bonus selection
 racial_bonus1_label = tk.Label(root, text="Select First Ability for +1")
-racial_bonus1_label.grid(row=8 + len(abilities), column=0, padx=10, pady=5)
 racial_bonus1_combobox = ttk.Combobox(root, values=list(abilities.keys()))
-racial_bonus1_combobox.grid(row=8 + len(abilities), column=1, padx=10, pady=5)
-racial_bonus1_combobox.grid_forget()  # Hide initially
 
 racial_bonus2_label = tk.Label(root, text="Select Second Ability for +1")
-racial_bonus2_label.grid(row=9 + len(abilities), column=0, padx=10, pady=5)
 racial_bonus2_combobox = ttk.Combobox(root, values=list(abilities.keys()))
-racial_bonus2_combobox.grid(row=9 + len(abilities), column=1, padx=10, pady=5)
-racial_bonus2_combobox.grid_forget()  # Hide initially
+
+# Initially hide them
+racial_bonus1_label.grid_forget()  
+racial_bonus1_combobox.grid_forget()
+
+racial_bonus2_label.grid_forget()  
+racial_bonus2_combobox.grid_forget()
+
 
 # Buttons
 update_button = tk.Button(root, text="Update Character", command=update_character)

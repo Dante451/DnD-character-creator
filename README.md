@@ -40,6 +40,10 @@ When selecting a race and a subrace, switching races and not selecting a new sub
 
 ## Changelog:
 
+
+### 0.5.1 (5/3/25):
+Changed bonus ability text to be hidden on start and when any race but Half-Elf or Variant Human selected
+
 ### 0.5 (5/3/25):
 Added a name box for naming characters
 
