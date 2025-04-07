@@ -25,7 +25,7 @@ Add an info button that gives information on whatever is selected
 
 Adding feat selection
 
-Adding inventory and weight
+Add starting gear for backgrounds and classes
 
 Add AC
 
@@ -44,6 +44,8 @@ When selecting a race and a subrace, switching races and not selecting a new sub
 
 ## Changelog:
 
+### 0.6 (7/4/25):
+Added an inventory system that allows you to add and delete items
 
 ### 0.5.1 (5/3/25):
 Changed bonus ability text to be hidden on start and when any race but Half-Elf or Variant Human selected
