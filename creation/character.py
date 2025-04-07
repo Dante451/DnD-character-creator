@@ -7,6 +7,7 @@ class Character:
         self.background = ""
         self.abilities = {}
         self.races = races  # Store the races data to reference race bonuses
+        self.inventory = []  # Initialize an empty inventory
 
     def set_name(self, name):
         self.name = name  # Set the name for the character
@@ -214,19 +215,49 @@ class Character:
         # Add more races and their bonuses here as needed
         print(f"Applied race bonuses: {self.abilities}")
 
+    def apply_starting_items(self):
+        """Add starting items to the inventory based on the background."""
+        starting_items = self.backgrounds.get(self.background, {}).get("items", [])
+        self.inventory.extend(starting_items)  # Add starting items to the main inventory
+        print(f"Added starting items for background '{self.background}': {starting_items}")
+    
+    def add_item_to_inventory(self, item):
+        """Add an item to the character's inventory."""
+        self.inventory.append(item)
+        print(f"Added {item} to inventory.")
+
+    def remove_item_from_inventory(self, item):
+        """Remove an item from the character's inventory."""
+        if item in self.inventory:
+            self.inventory.remove(item)
+            print(f"Removed {item} from inventory.")
+        else:
+            print(f"{item} not found in inventory.")
+
+    def view_inventory(self):
+        """Display all items in the character's inventory."""
+        if self.inventory:
+            print("Inventory:")
+            for item in self.inventory:
+                print(f"- {item}")
+        else:
+            print("Inventory is empty.")
+
     def __str__(self):
         # Print race and subrace if subrace exists
         return (f"Character:\nRace: {self.race} {f'({self.subrace})' if self.subrace else ''}\n"
                 f"Class: {self.char_class}\nBackground: {self.background}\n"
-                f"Abilities: {', '.join([f'{k}: {v}' for k, v in self.abilities.items()])}")
+                f"Abilities: {', '.join([f'{k}: {v}' for k, v in self.abilities.items()])}\n"
+                f"Inventory: {', '.join(self.inventory) if self.inventory else 'No items'}")
 
     def to_dict(self):
-        """Return the character data as a dictionary, including name."""
+        """Return the character data as a dictionary, including name, abilities, and inventory."""
         return {
-            "name": self.name,  # Save the name to the dictionary
+            "name": self.name,  
             "race": self.race,
-            "subrace": self.subrace,  # Save subrace to JSON
+            "subrace": self.subrace,  
             "class": self.char_class,
             "background": self.background,
-            "abilities": self.abilities
+            "abilities": self.abilities,
+            "inventory": self.inventory  
         }

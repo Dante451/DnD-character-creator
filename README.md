@@ -25,6 +25,10 @@ Add an info button that gives information on whatever is selected
 
 Adding feat selection
 
+Adding inventory and weight
+
+Add AC
+
 Adding skill selection
 
 Adding level up and character updates

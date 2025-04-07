@@ -1,19 +1,130 @@
 {
-    "Acolyte": {},
-    "Anthropologist": {},
-    "Charlatan": {},
-    "Criminal": {},
-    "Entertainer": {},
-    "Folk Hero": {},
-    "Guild Artisan": {},
-    "Hermit": {},
-    "Noble": {},
-    "Outlander": {},
-    "Sage": {},
-    "Sailor": {},
-    "Soldier": {},
-    "Spy": {},
-    "Tinker": {},
-    "Urchin": {}
+  "Acolyte": {
+      "items": [
+          "Holy symbol",
+          "Prayer book or prayer wheel",
+          "Set of common clothes",
+          "Belt pouch containing 15 gp"
+      ]
+  },
+  "Anthropologist": {
+      "items": [
+          "A journal",
+          "A set of traveler's clothes",
+          "A set of artisan's tools (your choice)",
+          "A belt pouch containing 10 gp"
+      ]
+  },
+  "Charlatan": {
+      "items": [
+          "A set of fine clothes",
+          "A disguise kit",
+          "Tools of the con (a deck of marked cards or loaded dice)",
+          "Belt pouch containing 15 gp"
+      ]
+  },
+  "Criminal": {
+      "items": [
+          "A crowbar",
+          "A set of dark clothes",
+          "Burglar's pack or burglar's tools",
+          "Belt pouch containing 15 gp"
+      ]
+  },
+  "Entertainer": {
+      "items": [
+          "A musical instrument (your choice)",
+          "A set of fine clothes",
+          "Belt pouch containing 15 gp"
+      ]
+  },
+  "Folk Hero": {
+      "items": [
+          "A sickle",
+          "A shovel",
+          "A set of artisan's tools (your choice)",
+          "A set of traveler's clothes",
+          "Belt pouch containing 10 gp"
+      ]
+  },
+  "Guild Artisan": {
+      "items": [
+          "A set of artisan's tools (your choice)",
+          "A letter of introduction from your guild",
+          "A set of traveler's clothes",
+          "Belt pouch containing 15 gp"
+      ]
+  },
+  "Hermit": {
+      "items": [
+          "A scroll case stuffed with notes",
+          "A winter blanket",
+          "A set of common clothes",
+          "Belt pouch containing 5 gp"
+      ]
+  },
+  "Noble": {
+      "items": [
+          "A set of fine clothes",
+          "A signet ring",
+          "A family crest or token of your noble house",
+          "Belt pouch containing 25 gp"
+      ]
+  },
+  "Outlander": {
+      "items": [
+          "A hunting trap",
+          "A trophy from an animal you killed",
+          "A set of traveler's clothes",
+          "Belt pouch containing 10 gp"
+      ]
+  },
+  "Sage": {
+      "items": [
+          "A scholar's robe",
+          "A bottle of ink",
+          "An ink pen",
+          "A set of common clothes",
+          "Belt pouch containing 10 gp"
+      ]
+  },
+  "Sailor": {
+      "items": [
+          "A belaying pin (club)",
+          "A set of common clothes",
+          "A sailor's pack (includes a variety of small survival tools)",
+          "Belt pouch containing 10 gp"
+      ]
+  },
+  "Soldier": {
+      "items": [
+          "A uniform",
+          "A set of gaming dice or cards",
+          "Belt pouch containing 10 gp"
+      ]
+  },
+  "Spy": {
+      "items": [
+          "A set of fine clothes",
+          "A disguise kit",
+          "A poisoner's kit",
+          "Belt pouch containing 15 gp"
+      ]
+  },
+  "Tinker": {
+      "items": [
+          "A set of tinker's tools",
+          "A small metal object (your choice) you've repaired",
+          "A set of common clothes",
+          "Belt pouch containing 10 gp"
+      ]
+  },
+  "Urchin": {
+      "items": [
+          "A small knife",
+          "A map of the city you grew up in",
+          "A set of common clothes",
+          "A belt pouch containing 10 gp"
+      ]
   }
-  
+}

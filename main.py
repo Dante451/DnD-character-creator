@@ -108,6 +108,26 @@ def save_char():
     save_character(character, 'character.json')
     print("Character saved!")
 
+# Function to view inventory
+def view_inventory():
+    character.view_inventory()
+
+# Function to add an item to inventory
+def add_item():
+    item = item_entry.get()
+    if item:
+        character.add_item_to_inventory(item)
+    else:
+        messagebox.showwarning("Invalid Input", "Please enter an item name.")
+
+# Function to remove an item from inventory
+def remove_item():
+    item = item_entry.get()
+    if item:
+        character.remove_item_from_inventory(item)
+    else:
+        messagebox.showwarning("Invalid Input", "Please enter an item name.")
+
 # GUI Widgets
 tk.Label(root, text="Enter Character Name").grid(row=0, column=0, padx=10, pady=5)
 name_entry = tk.Entry(root)  # Create an entry widget for the character name
@@ -130,7 +150,6 @@ subrace_label = tk.Label(root, text="Select Subrace (if applicable)")
 subrace_combobox = ttk.Combobox(root, values=[])
 subrace_combobox.grid_forget()  # Hide it initially
 
-
 # Ability Scores Input
 tk.Label(root, text="Enter Ability Scores (1-20)").grid(row=5, column=0, padx=10, pady=5)
 ability_entries = {}
@@ -138,9 +157,6 @@ for idx, ability in enumerate(abilities):
     tk.Label(root, text=ability).grid(row=6 + idx, column=0, padx=10, pady=5)
     ability_entries[ability] = tk.Entry(root)
     ability_entries[ability].grid(row=6 + idx, column=1, padx=10, pady=5)
-
-# Bind event to update subrace options when race changes
-race_combobox.bind("<<ComboboxSelected>>", lambda event: update_subrace_options())
 
 # Initially hide the labels and ComboBoxes for +1 ability bonus selection
 racial_bonus1_label = tk.Label(root, text="Select First Ability for +1")
@@ -156,12 +172,86 @@ racial_bonus1_combobox.grid_forget()
 racial_bonus2_label.grid_forget()  
 racial_bonus2_combobox.grid_forget()
 
+# Widgets for Inventory Section (initially placed in default position)
+view_button = tk.Button(root, text="View Inventory", command=view_inventory)
+add_button = tk.Button(root, text="Add Item to Inventory", command=add_item)
+remove_button = tk.Button(root, text="Remove Item from Inventory", command=remove_item)
+item_entry = tk.Entry(root)
 
-# Buttons
+# Default position for inventory
+view_button.grid(row=6 + len(abilities) + 1, column=0, padx=10, pady=5)
+item_entry.grid(row=6 + len(abilities) + 1, column=1, padx=10, pady=5)
+add_button.grid(row=6 + len(abilities) + 3, column=0, padx=10, pady=5)
+remove_button.grid(row=6 + len(abilities) + 4, column=0, padx=10, pady=5)
+
+# Buttons for Update/Save Character (placed after the inventory section)
 update_button = tk.Button(root, text="Update Character", command=update_character)
-update_button.grid(row=7 + len(abilities), column=0, padx=10, pady=10)
+update_button.grid(row=6 + len(abilities) + 5, column=0, padx=10, pady=10)
 
 save_button = tk.Button(root, text="Save Character", command=save_char)
-save_button.grid(row=7 + len(abilities), column=1, padx=10, pady=10)
+save_button.grid(row=6 + len(abilities) + 5, column=1, padx=10, pady=10)
+
+# Bind event to update subrace options when race changes
+def on_race_selected(event):
+    selected_race = race_combobox.get()
+
+    # First hide the subrace components
+    subrace_label.grid_forget()
+    subrace_combobox.grid_forget()
+
+    # Handle Subrace visibility based on selected race
+    if selected_race in races_with_subraces:  # List of races with subraces (e.g., 'Elf', 'Dwarf')
+        if selected_race in subraces:  # Check if subraces are defined for the selected race
+            subrace_combobox['values'] = subraces[selected_race]  # Update subrace options based on race
+            subrace_label.grid(row=4, column=0, padx=10, pady=5)  # Make subrace label visible
+            subrace_combobox.grid(row=4, column=1, padx=10, pady=5)  # Make subrace combobox visible
+    else:
+        subrace_label.grid_forget()  # Hide subrace label if no subraces for the race
+        subrace_combobox.grid_forget()  # Hide subrace combobox if no subraces for the race
+
+    # If Variant Human or Half-Elf, add extra space for ability bonus selectors
+    if selected_race in ["Variant Human", "Half-Elf"]:
+        racial_bonus1_label.grid(row=6 + len(abilities) + 6, column=0, padx=10, pady=5)
+        racial_bonus1_combobox.grid(row=6 + len(abilities) + 6, column=1, padx=10, pady=5)
+
+        racial_bonus2_label.grid(row=6 + len(abilities) + 7, column=0, padx=10, pady=5)
+        racial_bonus2_combobox.grid(row=6 + len(abilities) + 7, column=1, padx=10, pady=5)
+
+        # Move inventory section lower by 2 rows to make space for ability bonus selectors
+        view_button.grid(row=6 + len(abilities) + 9, column=0, padx=10, pady=5)
+        item_entry.grid(row=6 + len(abilities) + 9, column=1, padx=10, pady=5)
+        add_button.grid(row=6 + len(abilities) + 11, column=0, padx=10, pady=5)
+        remove_button.grid(row=6 + len(abilities) + 12, column=0, padx=10, pady=5)
+
+        update_button.grid(row=6 + len(abilities) + 13, column=0, padx=10, pady=10)
+        save_button.grid(row=6 + len(abilities) + 13, column=1, padx=10, pady=10)
+    else:
+        # Reset to default position when these races are not selected
+        racial_bonus1_label.grid_forget()
+        racial_bonus1_combobox.grid_forget()
+        racial_bonus2_label.grid_forget()
+        racial_bonus2_combobox.grid_forget()
+
+        # Reset inventory to default position
+        view_button.grid(row=6 + len(abilities) + 1, column=0, padx=10, pady=5)
+        item_entry.grid(row=6 + len(abilities) + 1, column=1, padx=10, pady=5)
+        add_button.grid(row=6 + len(abilities) + 3, column=0, padx=10, pady=5)
+        remove_button.grid(row=6 + len(abilities) + 4, column=0, padx=10, pady=5)
+
+        update_button.grid(row=6 + len(abilities) + 5, column=0, padx=10, pady=10)
+        save_button.grid(row=6 + len(abilities) + 5, column=1, padx=10, pady=10)
+
+# List of races that have subraces (you can modify this list based on your data)
+races_with_subraces = ['Elf', 'Dwarf', 'Halfling']  # Example, add your races that have subraces
+
+# Example subraces data
+subraces = {
+    'Elf': ['High Elf', 'Wood Elf', 'Dark Elf'],
+    'Dwarf': ['Mountain Dwarf', 'Hill Dwarf'],
+    'Halfling': ['Lightfoot', 'Stout']
+}
+
+# Bind race change event to on_race_selected
+race_combobox.bind("<<ComboboxSelected>>", on_race_selected)
 
 root.mainloop()

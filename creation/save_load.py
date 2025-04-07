@@ -17,6 +17,7 @@ def load_character(filename):
         character.set_class(data['class'])
         character.set_background(data['background'])
         character.set_abilities(data['abilities'])
+        character.inventory = data['inventory']  
         return character
 
 def load_data(filename):
