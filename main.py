@@ -14,7 +14,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 
 root = tk.Tk()
-root.title("D&D Character Creator (v0.6)")
+root.title("D&D Character Creator (v0.6.1)")
 
 # Create a character object, passing races data
 character = Character(races)
@@ -199,17 +199,15 @@ def on_race_selected(event):
     subrace_label.grid_forget()
     subrace_combobox.grid_forget()
 
-    # Handle Subrace visibility based on selected race
-    if selected_race in races_with_subraces:  # List of races with subraces (e.g., 'Elf', 'Dwarf')
-        if selected_race in subraces:  # Check if subraces are defined for the selected race
-            subrace_combobox['values'] = subraces[selected_race]  # Update subrace options based on race
-            subrace_label.grid(row=4, column=0, padx=10, pady=5)  # Make subrace label visible
-            subrace_combobox.grid(row=4, column=1, padx=10, pady=5)  # Make subrace combobox visible
-    else:
-        subrace_label.grid_forget()  # Hide subrace label if no subraces for the race
-        subrace_combobox.grid_forget()  # Hide subrace combobox if no subraces for the race
+    # Get subraces directly from the races dictionary
+    subrace_list = races.get(selected_race, {}).get('subraces', [])
 
-    # If Variant Human or Half-Elf, add extra space for ability bonus selectors
+    if subrace_list:  # If subraces exist for the selected race
+        subrace_combobox['values'] = subrace_list
+        subrace_label.grid(row=4, column=0, padx=10, pady=5)
+        subrace_combobox.grid(row=4, column=1, padx=10, pady=5)
+
+    # If Variant Human or Half-Elf, show ability bonus selectors
     if selected_race in ["Variant Human", "Half-Elf"]:
         racial_bonus1_label.grid(row=6 + len(abilities) + 6, column=0, padx=10, pady=5)
         racial_bonus1_combobox.grid(row=6 + len(abilities) + 6, column=1, padx=10, pady=5)
@@ -217,7 +215,7 @@ def on_race_selected(event):
         racial_bonus2_label.grid(row=6 + len(abilities) + 7, column=0, padx=10, pady=5)
         racial_bonus2_combobox.grid(row=6 + len(abilities) + 7, column=1, padx=10, pady=5)
 
-        # Move inventory section lower by 2 rows to make space for ability bonus selectors
+        # Move inventory section lower
         view_button.grid(row=6 + len(abilities) + 9, column=0, padx=10, pady=5)
         item_entry.grid(row=6 + len(abilities) + 9, column=1, padx=10, pady=5)
         add_button.grid(row=6 + len(abilities) + 11, column=0, padx=10, pady=5)
@@ -226,13 +224,12 @@ def on_race_selected(event):
         update_button.grid(row=6 + len(abilities) + 13, column=0, padx=10, pady=10)
         save_button.grid(row=6 + len(abilities) + 13, column=1, padx=10, pady=10)
     else:
-        # Reset to default position when these races are not selected
+        # Reset positions if not Half-Elf or Variant Human
         racial_bonus1_label.grid_forget()
         racial_bonus1_combobox.grid_forget()
         racial_bonus2_label.grid_forget()
         racial_bonus2_combobox.grid_forget()
 
-        # Reset inventory to default position
         view_button.grid(row=6 + len(abilities) + 1, column=0, padx=10, pady=5)
         item_entry.grid(row=6 + len(abilities) + 1, column=1, padx=10, pady=5)
         add_button.grid(row=6 + len(abilities) + 3, column=0, padx=10, pady=5)
@@ -243,13 +240,6 @@ def on_race_selected(event):
 
 # List of races that have subraces (you can modify this list based on your data)
 races_with_subraces = ['Elf', 'Dwarf', 'Halfling']  # Example, add your races that have subraces
-
-# Example subraces data
-subraces = {
-    'Elf': ['High Elf', 'Wood Elf', 'Dark Elf'],
-    'Dwarf': ['Mountain Dwarf', 'Hill Dwarf'],
-    'Halfling': ['Lightfoot', 'Stout']
-}
 
 # Bind race change event to on_race_selected
 race_combobox.bind("<<ComboboxSelected>>", on_race_selected)

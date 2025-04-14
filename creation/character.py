@@ -211,10 +211,6 @@ class Character:
         
         print(f"Updated abilities after race bonus: {self.abilities}")
 
-
-        # Add more races and their bonuses here as needed
-        print(f"Applied race bonuses: {self.abilities}")
-
     def apply_starting_items(self):
         """Add starting items to the inventory based on the background."""
         starting_items = self.backgrounds.get(self.background, {}).get("items", [])

@@ -25,6 +25,8 @@ Add an info button that gives information on whatever is selected
 
 Adding feat selection
 
+Add gold and money tracking
+
 Add starting gear for backgrounds and classes
 
 Add AC
@@ -43,6 +45,9 @@ Add artificer
 When selecting a race and a subrace, switching races and not selecting a new subrace will retain the subrace title of the previous race (visual bug)
 
 ## Changelog:
+
+### 0.6.1 (14/4/25):
+Fixed an issue that was reading subraces from a subrace list from main.py instead of the races.json list
 
 ### 0.6 (7/4/25):
 Added an inventory system that allows you to add and delete items
