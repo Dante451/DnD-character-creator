@@ -1,13 +1,21 @@
 class Character:
-    def __init__(self, races):
+    def __init__(self, races, backgrounds):
         self.name = ""  # Add name attribute
         self.race = ""
         self.subrace = None  # Initialize subrace as None
         self.char_class = ""
-        self.background = ""
+        self.backgrounds = backgrounds
+        self.previous_background = None
         self.abilities = {}
         self.races = races  # Store the races data to reference race bonuses
         self.inventory = []  # Initialize an empty inventory
+        self.background_items = []
+
+    def reset_class_related_attributes(self):
+        """Resets only the class-specific attributes."""
+        self.items = []  # Reset class-specific starting items
+        self.abilities.clear()  # Clear class-specific abilities (if needed)
+        print("Class-related attributes reset.")
 
     def set_name(self, name):
         self.name = name  # Set the name for the character
@@ -212,10 +220,15 @@ class Character:
         print(f"Updated abilities after race bonus: {self.abilities}")
 
     def apply_starting_items(self):
-        """Add starting items to the inventory based on the background."""
-        starting_items = self.backgrounds.get(self.background, {}).get("items", [])
-        self.inventory.extend(starting_items)  # Add starting items to the main inventory
-        print(f"Added starting items for background '{self.background}': {starting_items}")
+        """Add starting items to inventory, only if background has changed."""
+        if self.background != self.previous_background:
+            starting_items = self.backgrounds.get(self.background, {}).get("items", [])
+            self.inventory.extend(starting_items)
+            self.previous_background = self.background  # Update tracker
+            print(f"Added starting items for new background '{self.background}': {starting_items}")
+        else:
+            print(f"Background '{self.background}' already applied. No items added.")
+
     
     def add_item_to_inventory(self, item):
         """Add an item to the character's inventory."""

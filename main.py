@@ -14,10 +14,10 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 
 root = tk.Tk()
-root.title("D&D Character Creator (v0.6.2)")
+root.title("D&D Character Creator (v0.7)")
 
 # Create a character object, passing races data
-character = Character(races)
+character = Character(races, backgrounds)
 
 # Function to validate ability score input
 def validate_ability_score(entry):
@@ -71,8 +71,16 @@ def update_character():
     character.set_subrace(subrace)  # Store the selected subrace
     
     # Set class and background
-    character.set_class(class_combobox.get())
+    selected_class = class_combobox.get()
+    
+    # Check if the class has changed before resetting related items
+    if character.char_class != selected_class:
+        # Reset class-related attributes (items, abilities, etc.)
+        character.reset_class_related_attributes()
+        
+    character.set_class(selected_class)
     character.set_background(background_combobox.get())
+    character.apply_starting_items()
     
     # Validate and update ability scores
     selected_abilities = {}
@@ -100,6 +108,7 @@ def update_character():
     
     # Print updated character info with bonuses applied
     print(character)
+
 
 
 

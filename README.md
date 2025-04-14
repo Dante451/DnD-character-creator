@@ -27,7 +27,7 @@ Adding feat selection
 
 Add gold and money tracking
 
-Add starting gear for backgrounds and classes
+Add starting gear for classes
 
 Add AC
 
@@ -42,9 +42,14 @@ Add artificer
 1.0 and beyond separated into branches to downpatch app if you so desire
 
 ## Known Issues:
-When selecting a race and a subrace, switching races and not selecting a new subrace will retain the subrace title of the previous race (visual bug)
+When selecting a race and a subrace, switching races and not selecting a new subrace will retain the subrace title of the previous race 
+
+Updating your background after initial character creation will not remove previous starting items
 
 ## Changelog:
+
+### 0.7 (14/4/25):
+Updated inventory system to include starting items automatically
 
 ### 0.6.2 (14/4/25):
 Added text and formatting for the stat selection text that informs of the standard array
