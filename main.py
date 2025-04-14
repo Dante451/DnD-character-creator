@@ -14,7 +14,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 
 root = tk.Tk()
-root.title("D&D Character Creator (v0.6.1)")
+root.title("D&D Character Creator (v0.6.2)")
 
 # Create a character object, passing races data
 character = Character(races)
@@ -151,7 +151,7 @@ subrace_combobox = ttk.Combobox(root, values=[])
 subrace_combobox.grid_forget()  # Hide it initially
 
 # Ability Scores Input
-tk.Label(root, text="Enter Ability Scores (1-20)").grid(row=5, column=0, padx=10, pady=5)
+tk.Label(root, text="Enter Ability Scores (1-20) - Standard Array: 15, 14, 13, 12, 10, 8").grid(row=5, column=0, columnspan=2, padx=10, pady=5)
 ability_entries = {}
 for idx, ability in enumerate(abilities):
     tk.Label(root, text=ability).grid(row=6 + idx, column=0, padx=10, pady=5)

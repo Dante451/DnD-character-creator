@@ -46,6 +46,9 @@ When selecting a race and a subrace, switching races and not selecting a new sub
 
 ## Changelog:
 
+### 0.6.2 (14/4/25):
+Added text and formatting for the stat selection text that informs of the standard array
+
 ### 0.6.1 (14/4/25):
 Fixed an issue that was reading subraces from a subrace list from main.py instead of the races.json list
 
